@@ -1,0 +1,25 @@
+﻿<Window x:Class="processes.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:processes"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <DockPanel>
+        <UniformGrid Rows="1" DockPanel.Dock="Bottom">
+            <Button Name="proc_kill" Click="proc_kill_Click">убить процесс</Button>
+        </UniformGrid>
+        <ListView ItemsSource="{Binding}" x:Name="list">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="название" DisplayMemberBinding="{Binding ProcessName}"></GridViewColumn>
+                    <GridViewColumn Header="id процесса" DisplayMemberBinding="{Binding Id}"></GridViewColumn>
+                    <GridViewColumn Header="потребление памяти" DisplayMemberBinding="{Binding PrivateMemorySize64}"></GridViewColumn>
+                    <GridViewColumn Header="количество потоков" DisplayMemberBinding="{Binding Threads}"></GridViewColumn>
+                    <GridViewColumn Header="отвечает или нет" DisplayMemberBinding="{Binding Responding}"></GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </DockPanel>
+</Window>
